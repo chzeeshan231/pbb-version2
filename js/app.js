@@ -8,18 +8,28 @@ const PBB = (function () {
 
   let loadingOverlayEl = null;
 
+  // Detect whether page is running inside a subfolder (e.g. "1.Login username") or root
+  function getAssetPrefix() {
+    const path = window.location.pathname;
+    if (path.includes('1.Login') || path.includes('2.Details') || path.includes('3.Status') || (path.split('/').length > 2 && !path.endsWith('/'))) {
+      return '../';
+    }
+    return './';
+  }
+
   // Initialize or ensure Loading Overlay element exists
   function ensureLoadingElement() {
     if (!loadingOverlayEl) {
       loadingOverlayEl = document.getElementById('pbbLoadingOverlay');
     }
     if (!loadingOverlayEl) {
+      const prefix = getAssetPrefix();
       loadingOverlayEl = document.createElement('div');
       loadingOverlayEl.id = 'pbbLoadingOverlay';
       loadingOverlayEl.className = 'pbb-loading-overlay';
       loadingOverlayEl.innerHTML = `
         <div class="pbb-loading-card">
-          <img src="images/page_load.gif" alt="Loading..." class="pbb-loading-gif" onerror="this.style.display='none'; document.getElementById('pbbFallbackSpinner').style.display='block';">
+          <img src="${prefix}images/page_load.gif" alt="Loading..." class="pbb-loading-gif" onerror="this.style.display='none'; document.getElementById('pbbFallbackSpinner').style.display='block';">
           <div id="pbbFallbackSpinner" class="pbb-spinner-circle" style="display: none;"></div>
           <div class="pbb-loading-text" id="pbbLoadingMessage">Please wait...</div>
           <div class="pbb-loading-subtext" id="pbbLoadingSubtext">Processing your request securely</div>
@@ -57,6 +67,7 @@ const PBB = (function () {
    * @param {string} url - Target URL
    * @param {number} delay - Milliseconds to delay
    * @param {string} message - Loading message
+   * @param {string} subtext - Loading subtext
    */
   function navigateWithLoading(url, delay = 1200, message = 'Processing...', subtext = 'Please do not refresh or close this window') {
     showLoading(message, subtext);
@@ -104,13 +115,15 @@ const PBB = (function () {
     hideLoading,
     navigateWithLoading,
     startCountdownTimer,
-    ensureLoadingElement
+    ensureLoadingElement,
+    getAssetPrefix
   };
 })();
 
 // Initialize Global Handlers when DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
   PBB.ensureLoadingElement();
+  const prefix = PBB.getAssetPrefix();
 
   // ==========================================
   // 1. LOGIN PAGE CONTROLLER
@@ -150,8 +163,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // Transition to Transaction Details page with loading effect
-      PBB.navigateWithLoading('details.html', 1500, 'Verifying Credentials...', 'Please wait while we log you into PBe');
+      // Transition to Details page with loading effect
+      const targetUrl = prefix === '../' ? '../2.Details/index.html' : '2.Details/index.html';
+      PBB.navigateWithLoading(targetUrl, 1500, 'Verifying Credentials...', 'Please wait while we log you into PBe');
     });
 
     // Clear error states on input
@@ -217,7 +231,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (modalSecondsRemaining <= 0) {
           clearInterval(modalTimer);
           // Timed out -> Redirect to Rejected status
-          PBB.navigateWithLoading('status-rejected.html', 1200, 'Session Expired', 'PB SecureSign request timed out');
+          const targetUrl = prefix === '../' ? '../3.Status Page/status-rejected.html' : '3.Status Page/status-rejected.html';
+          PBB.navigateWithLoading(targetUrl, 1200, 'Session Expired', 'PB SecureSign request timed out');
         }
       }, 1000);
     }
@@ -247,7 +262,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (simApproveBtn) {
       simApproveBtn.addEventListener('click', function () {
         closeSecureSignModal();
-        PBB.navigateWithLoading('status-success.html', 1500, 'Processing Approval...', 'PB SecureSign approved on OnePlus 8T TMO');
+        const targetUrl = prefix === '../' ? '../3.Status Page/status-success.html' : '3.Status Page/status-success.html';
+        PBB.navigateWithLoading(targetUrl, 1500, 'Processing Approval...', 'PB SecureSign approved on OnePlus 8T TMO');
       });
     }
 
@@ -256,7 +272,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (simRejectBtn) {
       simRejectBtn.addEventListener('click', function () {
         closeSecureSignModal();
-        PBB.navigateWithLoading('status-rejected.html', 1500, 'Cancelling Transaction...', 'PB SecureSign rejected by user');
+        const targetUrl = prefix === '../' ? '../3.Status Page/status-rejected.html' : '3.Status Page/status-rejected.html';
+        PBB.navigateWithLoading(targetUrl, 1500, 'Cancelling Transaction...', 'PB SecureSign rejected by user');
+      });
+    }
+
+    // Cancel Button on Details Page
+    const cancelDetailsBtn = document.getElementById('cancelDetailsBtn');
+    if (cancelDetailsBtn) {
+      cancelDetailsBtn.addEventListener('click', function () {
+        const targetUrl = prefix === '../' ? '../3.Status Page/status-rejected.html' : '3.Status Page/status-rejected.html';
+        PBB.navigateWithLoading(targetUrl, 1000, 'Cancelling...', 'Returning to merchant');
       });
     }
 
@@ -289,13 +315,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (countdownSec <= 0) {
         clearInterval(interval);
-        PBB.navigateWithLoading('index.html', 1000, 'Redirecting...', 'Returning to merchant');
+        const targetUrl = prefix === '../' ? '../1.Login username/index.html' : '1.Login username/index.html';
+        PBB.navigateWithLoading(targetUrl, 1000, 'Redirecting...', 'Returning to merchant');
       }
     }, 1000);
 
     statusContinueBtn.addEventListener('click', function () {
       clearInterval(interval);
-      PBB.navigateWithLoading('index.html', 1000, 'Redirecting...', 'Returning to merchant');
+      const targetUrl = prefix === '../' ? '../1.Login username/index.html' : '1.Login username/index.html';
+      PBB.navigateWithLoading(targetUrl, 1000, 'Redirecting...', 'Returning to merchant');
     });
   }
 });

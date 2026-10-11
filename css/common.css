@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --pbb-red: #d32f2f;
+  --pbb-red-hover: #b71c1c;
+  --pbb-red-active: #9a0007;
+  --pbb-red-light: rgba(211, 47, 47, 0.08);
+  --pbb-blue: #0056b3;
+  --pbb-text-dark: #222222;
+  --pbb-text-muted: #666666;
+  --pbb-text-light: #888888;
+  --pbb-border: #d0d7de;
+  --pbb-input-bg: #ffffff;
+  --pbb-disabled-bg: #e9ecef;
+  --pbb-disabled-text: #495057;
+  --pbb-sidebar-bg: #f3f2f2;
+  --pbb-page-bg: #f0f2f5;
+  --pbb-footer-bg: #2b2b2b;
+  --pbb-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --pbb-radius: 6px;
+  --pbb-font: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--pbb-font);
+  color: var(--pbb-text-dark);
+  background-color: var(--pbb-page-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--pbb-red);
+}
+
+/* =========================================================
+   GLOBAL HEADER
+   ========================================================= */
+.pbb-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 24px;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.pbb-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pbb-logo-wrap img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.fpx-logo-wrap img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+/* FPX Page Header Variant (Details & Status Pages) */
+.fpx-page-header {
+  background-color: #f0f2f5;
+  padding: 24px 20px 10px;
+  width: 100%;
+}
+
+.fpx-page-header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  align-items: center;
+}
+
+.fpx-page-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+}
+
+.mypb-logo-wrap img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.fpx-logo-center-wrap {
+  text-align: right;
+}
+
+.fpx-logo-center-wrap img {
+  height: 30px;
+  width: auto;
+}
+
+/* =========================================================
+   GLOBAL FOOTER
+   ========================================================= */
+.pbb-footer {
+  background-color: var(--pbb-footer-bg);
+  color: #cccccc;
+  font-size: 13px;
+  padding: 14px 24px;
+  margin-top: auto;
+  width: 100%;
+}
+
+.pbb-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pbb-footer-copy {
+  color: #ffffff;
+  font-size: 12.5px;
+}
+
+.pbb-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+}
+
+.pbb-footer-links a {
+  color: #ffffff;
+  font-size: 12.5px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pbb-footer-links a:hover {
+  color: #ff9999;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   REUSABLE LOADING EFFECT OVERLAY
+   ========================================================= */
+.pbb-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(4px);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pbb-loading-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all; /* Completely freezes any interaction */
+}
+
+.pbb-loading-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid #eaeaea;
+  max-width: 380px;
+  text-align: center;
+}
+
+.pbb-loading-gif {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 16px;
+}
+
+.pbb-loading-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222222;
+  margin-bottom: 6px;
+}
+
+.pbb-loading-subtext {
+  font-size: 13px;
+  color: #777777;
+}
+
+.pbb-spinner-circle {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--pbb-red);
+  border-radius: 50%;
+  animation: pbbSpin 0.9s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes pbbSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .fpx-page-header-inner {
+    grid-template-columns: 80px 1fr 80px;
+  }
+  .fpx-page-title {
+    font-size: 20px;
+  }
+  .pbb-footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  .pbb-footer-links {
+    justify-content: center;
+  }
+}

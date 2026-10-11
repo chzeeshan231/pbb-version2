@@ -1,0 +1,127 @@
+/* =========================================================
+   STATUS REJECTED PAGE SPECIFIC STYLES
+   ========================================================= */
+
+.status-page-wrapper {
+  max-width: 820px;
+  margin: 30px auto 40px;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.status-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  padding: 36px 40px;
+  border: 1px solid #eef2f6;
+}
+
+.status-header-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.status-icon-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.status-icon-circle.rejected {
+  background-color: #e50012;
+}
+
+.status-icon-svg {
+  width: 28px;
+  height: 28px;
+  stroke: #ffffff;
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.status-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.status-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+  margin: 0;
+}
+
+.status-timestamp {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.status-details-content {
+  margin-top: 32px;
+  border-top: 1px solid #f1f3f5;
+  padding-top: 22px;
+}
+
+.status-code-text {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.status-desc-text {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 12px;
+}
+
+/* Status Button Row */
+.status-button-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.btn-status-continue {
+  background-color: #e50012;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(229, 0, 18, 0.3);
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-status-continue:hover {
+  background-color: #cc0010;
+  transform: translateY(-1px);
+}
+
+.btn-status-continue:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+  .status-card {
+    padding: 24px;
+  }
+}
