@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction Cancelled - Public Bank Berhad</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="images/pb_logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- FPX Payment Top Header -->
+  <header class="fpx-page-header">
+    <div class="fpx-page-header-inner">
+      <div class="mypb-logo-wrap">
+        <a href="index.html">
+          <img src="images/mypb_100h.png" alt="MyPB Logo">
+        </a>
+      </div>
+      <h1 class="fpx-page-title">FPX Payment</h1>
+      <div class="fpx-logo-center-wrap">
+        <img src="images/fpx2.png" alt="FPX">
+      </div>
+    </div>
+  </header>
+
+  <!-- Status Card Main Content -->
+  <main class="status-page-wrapper">
+    <div class="status-card">
+      
+      <div class="status-header-row">
+        <!-- Rejected Red Circle with X Icon -->
+        <div class="status-icon-circle rejected">
+          <svg class="status-icon-svg" viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
+
+        <div class="status-title-wrap">
+          <h2 class="status-title">Transaction Cancelled</h2>
+          <span class="status-timestamp" id="statusTimestamp">10 Oct 2026 10:28:30 PM</span>
+        </div>
+      </div>
+
+      <div class="status-details-content">
+        <p class="status-code-text">(E00042.301.7075104717)</p>
+        <p class="status-desc-text">You have rejected the transaction.</p>
+      </div>
+
+    </div>
+
+    <!-- Continue Button with Live Countdown (5) -->
+    <div class="status-button-row">
+      <button type="button" class="btn-status-continue" id="statusContinueBtn">
+        Continue with Transaction (<span id="statusCountdown">5</span>)
+      </button>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="pbb-footer">
+    <div class="pbb-footer-inner">
+      <div class="pbb-footer-copy">
+        Copyright &copy; 2026 Public Bank Berhad 196501000672 (6463-H). ALL RIGHTS RESERVED.
+      </div>
+      <ul class="pbb-footer-links">
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Customer Service Charter</a></li>
+        <li><a href="#">Bank Negara Malaysia</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
