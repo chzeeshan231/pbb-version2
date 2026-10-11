@@ -11,7 +11,7 @@ const PBB = (function () {
   // Detect whether page is running inside a subfolder (e.g. "1.Login username") or root
   function getAssetPrefix() {
     const path = window.location.pathname;
-    if (path.includes('1.Login') || path.includes('2.Details') || path.includes('3.Status') || (path.split('/').length > 2 && !path.endsWith('/'))) {
+    if (path.includes('1.Login') || path.includes('2.Details') || path.includes('2.1 Approve') || path.includes('3.Status') || (path.split('/').length > 2 && !path.endsWith('/'))) {
       return '../';
     }
     return './';
