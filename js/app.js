@@ -11,7 +11,7 @@ const PBB = (function () {
   // Detect whether page is running inside a subfolder (e.g. "1.Login username") or root
   function getAssetPrefix() {
     const path = window.location.pathname;
-    if (path.includes('1.Login') || path.includes('2.Details') || path.includes('2.1 Approve') || path.includes('3.Status') || (path.split('/').length > 2 && !path.endsWith('/'))) {
+    if (path.includes('1.Login') || path.includes('1.1 Login') || path.includes('2.Details') || path.includes('2.1 Approve') || path.includes('3.Status') || (path.split('/').length > 2 && !path.endsWith('/'))) {
       return '../';
     }
     return './';
@@ -173,6 +173,29 @@ document.addEventListener('DOMContentLoaded', function () {
     inputs.forEach(input => {
       input.addEventListener('input', () => input.classList.remove('input-error'));
     });
+  }
+
+  // ==========================================
+  // 1.1 LOGIN WITH PASSWORD CONTROLLER
+  // ==========================================
+  const passwordForm = document.getElementById('passwordForm');
+  if (passwordForm) {
+    passwordForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const pwdInput = document.getElementById('password');
+      if (!pwdInput.value.trim()) {
+        pwdInput.classList.add('input-error');
+        alert('Please enter your password.');
+        return;
+      }
+      const targetUrl = prefix === '../' ? '../2.Details/index.html' : '2.Details/index.html';
+      PBB.navigateWithLoading(targetUrl, 1500, 'Verifying Password...', 'Please wait while we log you into PBe');
+    });
+
+    const pwdInput = document.getElementById('password');
+    if (pwdInput) {
+      pwdInput.addEventListener('input', () => pwdInput.classList.remove('input-error'));
+    }
   }
 
   // ==========================================

