@@ -3,26 +3,29 @@
    ========================================================= */
 
 .login-main-container {
-  max-width: 1220px;
+  max-width: 1140px;
   margin: 30px auto 40px;
   padding: 0 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  box-sizing: border-box;
 }
 
 .login-grid {
   display: grid;
-  grid-template-columns: 62% 38%;
-  gap: 28px;
+  grid-template-columns: 540px 480px;
+  gap: 36px;
   align-items: start;
+  justify-content: center;
 }
 
 .login-left-col {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  width: 100%;
 }
 
 /* Combined Login Card */
@@ -30,30 +33,33 @@
   background: #ffffff;
   border-radius: var(--pbb-radius);
   border: 1px solid #d8dee4;
-  box-shadow: var(--pbb-shadow);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 200px;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .login-form-area {
-  padding: 26px 28px;
+  padding: 24px 24px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .login-header-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   border-bottom: 1px solid #edf2f7;
   padding-bottom: 10px;
 }
 
 .login-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: #111827;
 }
@@ -65,19 +71,23 @@
 
 /* Input group */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   position: relative;
+  width: 100%;
 }
 
 .input-with-icon {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .input-icon-svg {
   position: absolute;
   left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 16px;
   height: 16px;
   fill: #9ca3af;
@@ -87,16 +97,18 @@
 
 .pbb-input {
   width: 100%;
-  height: 44px;
-  padding: 10px 14px 10px 42px;
+  height: 40px;
+  padding: 0 14px 0 40px;
   font-family: inherit;
-  font-size: 14.5px;
+  font-size: 14px;
+  line-height: 38px;
   color: #1f2937;
   background-color: #ffffff;
-  border: 1px solid #0056b3;
+  border: 1px solid #3b82f6;
   border-radius: 4px;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
 }
 
 .pbb-input:focus {
@@ -104,8 +116,14 @@
   box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
 }
 
+.pbb-input:focus + .input-icon-svg,
+.input-with-icon:focus-within .input-icon-svg {
+  fill: #0056b3;
+}
+
 .pbb-input::placeholder {
-  color: #9ca3af;
+  color: #94a3b8;
+  font-size: 14px;
 }
 
 .pbb-input.input-error {
@@ -113,44 +131,53 @@
   background-color: #fff8f8;
 }
 
-/* Kill Switch Notice */
+/* Killswitch warning text */
 .login-killswitch-notice {
-  font-size: 12.5px;
-  color: #4b5563;
+  font-size: 12px;
   line-height: 1.45;
-  margin: -6px 0 16px 0;
+  color: #4b5563;
+  margin: -4px 0 12px 0;
 }
 
 .killswitch-highlight {
   color: var(--pbb-red);
   font-weight: 700;
+  text-decoration: underline;
 }
 
-/* On-Screen Keyboard hint */
+/* On-Screen Keyboard Hint */
 .onscreen-keyboard-hint {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 12.5px;
-  color: #4b5563;
-  margin-top: -6px;
-  margin-bottom: 14px;
+  color: #333333;
+  margin-top: 2px;
+  margin-bottom: 12px;
 }
 
-.kb-icon {
+.kb-icon-svg {
   width: 22px;
   height: 14px;
-  border: 1px solid #999;
-  border-radius: 2px;
+  flex-shrink: 0;
   display: inline-block;
-  background: repeating-linear-gradient(90deg, #ccc, #ccc 2px, #fff 2px, #fff 4px);
 }
 
+.onscreen-keyboard-hint a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.onscreen-keyboard-hint a:hover {
+  color: var(--pbb-red);
+}
+
+/* Session countdown timer */
 .session-timer-text {
-  font-size: 14px;
-  color: #1d4ed8;
+  font-size: 13.5px;
+  color: #0056b3;
   font-weight: 500;
-  margin: 14px 0 20px 0;
+  margin: 10px 0 16px 0;
 }
 
 /* Login Action Buttons */
@@ -158,19 +185,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 8px;
   padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
 }
 
 .btn-cancel-link {
   font-size: 14px;
-  color: #1d4ed8;
+  color: #0056b3;
   text-decoration: underline;
   cursor: pointer;
   background: none;
   border: none;
   padding: 0;
   font-family: inherit;
+  font-weight: 500;
 }
 
 .btn-cancel-link:hover {
@@ -181,14 +210,19 @@
   background-color: var(--pbb-red);
   color: #ffffff;
   border: none;
-  border-radius: 4px;
-  padding: 9px 28px;
-  font-size: 14.5px;
+  border-radius: 3px;
+  height: 36px;
+  padding: 0 26px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   transition: background-color 0.2s, transform 0.1s;
   box-shadow: 0 2px 4px rgba(211, 47, 47, 0.25);
-  font-family: inherit;
 }
 
 .btn-pbb-submit:hover {
@@ -206,21 +240,22 @@
   border-left: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
+  box-sizing: border-box;
 }
 
 .sidebar-section-title {
   font-size: 14px;
   font-weight: 700;
   color: #222222;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .sidebar-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 8px;
 }
 
 .sidebar-item {
@@ -233,7 +268,7 @@
 
 .sidebar-arrow {
   color: var(--pbb-red);
-  font-size: 11px;
+  font-size: 10px;
   line-height: 18px;
   flex-shrink: 0;
 }
@@ -253,8 +288,9 @@
   width: 100%;
   border-radius: var(--pbb-radius);
   overflow: hidden;
-  box-shadow: var(--pbb-shadow);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #d8dee4;
+  box-sizing: border-box;
 }
 
 .banner-travel-wrap img {
@@ -266,21 +302,24 @@
 /* Right Column BMW Banner */
 .login-right-col {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .banner-bmw-wrap {
   width: 100%;
-  border-radius: var(--pbb-radius);
-  overflow: hidden;
-  box-shadow: var(--pbb-shadow);
-  border: 1px solid #d8dee4;
-  background: #ffffff;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-bmw-wrap img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
 }
 
 /* Responsive */
