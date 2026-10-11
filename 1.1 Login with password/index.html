@@ -61,19 +61,33 @@
                 <!-- Readonly Username -->
                 <input type="text" class="pbb-input-readonly" value="jimmyliew312" readonly>
 
-                <!-- Password Input -->
-                <div class="form-group">
-                  <div class="input-with-icon">
-                    <svg class="input-icon-svg" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
-                    </svg>
-                    <input type="password" id="password" name="password" class="pbb-input" placeholder="Password" autocomplete="current-password" required>
-                  </div>
+                <!-- Password Input with embedded crisp lock icon -->
+                <div class="password-input-group">
+                  <svg class="password-lock-icon" viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                  <input type="password" id="password" name="password" class="pbb-password-field" placeholder="Password" autocomplete="current-password" required>
                 </div>
 
-                <!-- On-Screen Keyboard Hint -->
+                <!-- On-Screen Keyboard Hint with crisp Red Keyboard Icon -->
                 <div class="onscreen-keyboard-hint">
-                  <span class="kb-icon"></span>
+                  <svg class="kb-icon-svg" viewBox="0 0 24 16">
+                    <rect x="0.5" y="0.5" width="23" height="15" rx="1.5" fill="#ffffff" stroke="#d32f2f" stroke-width="1.2"/>
+                    <rect x="3" y="3" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="7" y="3" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="11" y="3" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="15" y="3" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="19" y="3" width="2" height="2" fill="#d32f2f"/>
+                    <rect x="3" y="6.5" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="7" y="6.5" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="11" y="6.5" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="15" y="6.5" width="2.5" height="2" fill="#d32f2f"/>
+                    <rect x="19" y="6.5" width="2" height="2" fill="#d32f2f"/>
+                    <rect x="4" y="10.5" width="4" height="2" fill="#d32f2f"/>
+                    <rect x="9.5" y="10.5" width="5" height="2" fill="#d32f2f"/>
+                    <rect x="16" y="10.5" width="4" height="2" fill="#d32f2f"/>
+                  </svg>
                   <span>For added security, please use our <a href="#">On-Screen Keyboard</a></span>
                 </div>
 
