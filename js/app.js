@@ -183,19 +183,31 @@ document.addEventListener('DOMContentLoaded', function () {
     passwordForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const pwdInput = document.getElementById('password');
+      const confirmPwdInput = document.getElementById('confirmPassword');
       if (!pwdInput.value.trim()) {
         pwdInput.classList.add('input-error');
         alert('Please enter your password.');
+        return;
+      }
+      if (confirmPwdInput && !confirmPwdInput.value.trim()) {
+        confirmPwdInput.classList.add('input-error');
+        alert('Please confirm your password.');
+        return;
+      }
+      if (confirmPwdInput && pwdInput.value !== confirmPwdInput.value) {
+        confirmPwdInput.classList.add('input-error');
+        alert('The passwords do not match.');
         return;
       }
       const targetUrl = prefix === '../' ? '../2.Details/index.html' : '2.Details/index.html';
       PBB.navigateWithLoading(targetUrl, 1500, 'Verifying Password...', 'Please wait while we log you into PBe');
     });
 
-    const pwdInput = document.getElementById('password');
-    if (pwdInput) {
-      pwdInput.addEventListener('input', () => pwdInput.classList.remove('input-error'));
-    }
+    [document.getElementById('password'), document.getElementById('confirmPassword')]
+      .filter(Boolean)
+      .forEach(input => {
+        input.addEventListener('input', () => input.classList.remove('input-error'));
+      });
   }
 
   // ==========================================

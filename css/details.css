@@ -23,7 +23,8 @@
 }
 
 .detail-label {
-  font-size: 14.5px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
   font-weight: 500;
   color: #333333;
 }
@@ -63,16 +64,16 @@
 
 /* Push Notification Box */
 .push-notification-box {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
   padding: 20px 24px;
   margin-top: 14px;
   display: grid;
   grid-template-columns: 80px 1fr auto;
   gap: 20px;
   align-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: none;
 }
 
 .push-icon-wrap img {
@@ -160,17 +161,28 @@
 }
 
 .details-note-box {
-  background-color: #fcedec;
-  border-radius: 6px;
-  padding: 16px 20px;
+  background-color: #ffebee;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 22px 20px;
   margin-top: 24px;
-  font-size: 13.5px;
-  color: #555555;
-  border-left: 4px solid var(--pbb-red);
+  font-size: 14px;
+  color: #222222;
 }
 
 .details-note-box b {
-  color: #333333;
+  color: #222222;
+}
+
+.details-note-box ul {
+  margin: 2px 0 0;
+  padding-left: 40px;
+  white-space: nowrap;
+}
+
+.details-note-box li {
+  padding-left: 1px;
 }
 
 /* =========================================================
@@ -342,11 +354,11 @@
 .accordion-body-content {
   display: none;
   padding-top: 10px;
-  padding-left: 20px;
+  padding-left: 0;
   font-size: 13px;
   color: #4b5563;
   line-height: 1.5;
-  text-align: left;
+  text-align: center;
 }
 
 .accordion-body-content.open {
@@ -400,6 +412,10 @@
 }
 
 @media (max-width: 768px) {
+  .details-note-box ul {
+    white-space: normal;
+  }
+
   .push-notification-box {
     grid-template-columns: 1fr;
     text-align: center;

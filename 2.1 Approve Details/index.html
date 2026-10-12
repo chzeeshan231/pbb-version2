@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="../css/approve-details.css">
   <link rel="shortcut icon" href="../images/pb_logo.png" type="image/png">
 </head>
+
 <body>
 
   <!-- FPX Payment Top Header -->
@@ -29,7 +31,7 @@
   <!-- Main Transaction Details Content (Background) -->
   <main class="details-page-wrapper">
     <div class="details-form-container">
-      
+
       <!-- From Account -->
       <div class="detail-row">
         <label for="fromAccount" class="detail-label">From Account</label>
@@ -81,7 +83,8 @@
         </div>
         <div class="push-text-wrap">
           <p>
-            Click "Send Push Notification" button and a push notification will be sent to your mobile device. Launch our mobile banking application and verify the transaction details before approving the transaction.
+            Click "Send Push Notification" button and a push notification will be sent to your mobile device. Launch our
+            mobile banking application and verify the transaction details before approving the transaction.
           </p>
         </div>
         <div>
@@ -103,25 +106,28 @@
       <!-- Note -->
       <div class="details-note-box">
         <b>Note</b><br>
-        &bull; By clicking on the "Cancel" button, you would be logged out from MyPB and redirected to the merchant's site.
+        &bull; By clicking on the "Cancel" button, you would be logged out from MyPB and redirected to the merchant's
+        site.
       </div>
 
     </div>
   </main>
 
   <!-- Step 2.1: PB SecureSign Popup Modal (Displayed directly in this step) -->
-  <div class="pbb-modal-overlay active" id="pbSecureSignModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="pbb-modal-overlay active" id="pbSecureSignModal" role="dialog" aria-modal="true"
+    aria-labelledby="modalTitle">
     <div class="pbb-modal-card">
-      
+
       <!-- Modal Header -->
       <div class="pbb-modal-header">
         <h2 class="pbb-modal-title" id="modalTitle">PB SecureSign (Push Notification)</h2>
-        <button type="button" class="pbb-modal-close-btn" id="closeModalBtn" aria-label="Close modal" onclick="window.location.href='../2.Details/index.html'">&times;</button>
+        <button type="button" class="pbb-modal-close-btn" id="closeModalBtn" aria-label="Close modal"
+          onclick="window.location.href='../2.Details/index.html'">&times;</button>
       </div>
 
       <!-- Modal Body -->
       <div class="pbb-modal-body">
-        
+
         <!-- Animated Phone Graphic -->
         <div class="modal-gif-wrap">
           <img src="../images/animation_500_kugn1p08.gif" alt="PB SecureSign Push Notification Animation">
@@ -151,19 +157,14 @@
         <!-- Accordion "Did not Receive?" -->
         <div class="modal-accordion">
           <button type="button" class="accordion-header-btn" id="viewMoreBtn">
-            <span class="accordion-arrow" id="viewMoreArrow">&#9658;</span>
+            <span class="accordion-arrow" id="viewMoreArrow">&#9634;</span>
             <span>Did not Receive?</span>
           </button>
           <div class="accordion-body-content" id="viewMoreContent">
             Launch our mobile banking application to approve it.<br>
-            Need Help? <a href="https://www.pbebank.com/en/digital-banking/mobile-banking/pb-securesign/" target="_blank" rel="noopener noreferrer">Click here</a>
+            Need Help? <a href="https://www.pbebank.com/en/digital-banking/mobile-banking/pb-securesign/"
+              target="_blank" rel="noopener noreferrer">Click here</a>
           </div>
-        </div>
-
-        <!-- Simulation Buttons -->
-        <div class="modal-sim-actions">
-          <button type="button" class="btn-sim-approve" id="simApproveBtn">&#10004; Simulate Mobile Approval</button>
-          <button type="button" class="btn-sim-reject" id="simRejectBtn">&#10008; Simulate Mobile Rejection</button>
         </div>
 
       </div>
@@ -190,4 +191,5 @@
 
   <script src="../js/app.js"></script>
 </body>
+
 </html>
