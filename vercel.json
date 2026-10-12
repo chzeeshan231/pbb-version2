@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/1.Login username/index.html",
+      "permanent": false
+    }
+  ]
+}
