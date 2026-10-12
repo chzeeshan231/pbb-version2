@@ -52,16 +52,17 @@ a:hover {
    GLOBAL HEADER
    ========================================================= */
 .pbb-header {
-  background-color: #ffffff;
+  background-color: #f1f9fa !important;
   border-bottom: 1px solid #e5e7eb;
-  padding: 12px 24px;
+  padding: 12px 0;
   width: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .pbb-header-inner {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -170,7 +171,7 @@ a:hover {
   color: #333333;
   font-size: 12px;
   padding: 14px 24px;
-  margin-top: auto;
+  margin-top: 200px;
   width: 100%;
 }
 
