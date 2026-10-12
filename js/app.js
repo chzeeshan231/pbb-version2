@@ -8,12 +8,8 @@ const PBB = (function () {
 
   let loadingOverlayEl = null;
 
-  // Detect whether page is running inside a subfolder (e.g. "1.Login username") or root
+  // All HTML files are now at root level — asset prefix is always './'
   function getAssetPrefix() {
-    const path = window.location.pathname;
-    if (path.includes('1.Login') || path.includes('1.1 Login') || path.includes('2.Details') || path.includes('2.1 Approve') || path.includes('3.Status') || (path.split('/').length > 2 && !path.endsWith('/'))) {
-      return '../';
-    }
     return './';
   }
 
@@ -123,7 +119,6 @@ const PBB = (function () {
 // Initialize Global Handlers when DOM is ready
 document.addEventListener('DOMContentLoaded', function () {
   PBB.ensureLoadingElement();
-  const prefix = PBB.getAssetPrefix();
 
   // ==========================================
   // 1. LOGIN PAGE CONTROLLER
@@ -164,8 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       // Transition to Details page with loading effect
-      const targetUrl = prefix === '../' ? '../2.Details/index.html' : '2.Details/index.html';
-      PBB.navigateWithLoading(targetUrl, 1500, 'Verifying Credentials...', 'Please wait while we log you into PBe');
+      PBB.navigateWithLoading('confirmdetails.html', 1500, 'Verifying Credentials...', 'Please wait while we log you into PBe');
     });
 
     // Clear error states on input
@@ -199,8 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('The passwords do not match.');
         return;
       }
-      const targetUrl = prefix === '../' ? '../2.Details/index.html' : '2.Details/index.html';
-      PBB.navigateWithLoading(targetUrl, 1500, 'Verifying Password...', 'Please wait while we log you into PBe');
+      PBB.navigateWithLoading('confirmdetails.html', 1500, 'Verifying Password...', 'Please wait while we log you into PBe');
     });
 
     [document.getElementById('password'), document.getElementById('confirmPassword')]
@@ -266,8 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (modalSecondsRemaining <= 0) {
           clearInterval(modalTimer);
           // Timed out -> Redirect to Rejected status
-          const targetUrl = prefix === '../' ? '../3.Status Page/status-rejected.html' : '3.Status Page/status-rejected.html';
-          PBB.navigateWithLoading(targetUrl, 1200, 'Session Expired', 'PB SecureSign request timed out');
+          PBB.navigateWithLoading('Status.html', 1200, 'Session Expired', 'PB SecureSign request timed out');
         }
       }, 1000);
     }
@@ -297,8 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (simApproveBtn) {
       simApproveBtn.addEventListener('click', function () {
         closeSecureSignModal();
-        const targetUrl = prefix === '../' ? '../3.Status Page/status-success.html' : '3.Status Page/status-success.html';
-        PBB.navigateWithLoading(targetUrl, 1500, 'Processing Approval...', 'PB SecureSign approved on OnePlus 8T TMO');
+        PBB.navigateWithLoading('Status.html', 1500, 'Processing Approval...', 'PB SecureSign approved on OnePlus 8T TMO');
       });
     }
 
@@ -307,8 +298,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (simRejectBtn) {
       simRejectBtn.addEventListener('click', function () {
         closeSecureSignModal();
-        const targetUrl = prefix === '../' ? '../3.Status Page/status-rejected.html' : '3.Status Page/status-rejected.html';
-        PBB.navigateWithLoading(targetUrl, 1500, 'Cancelling Transaction...', 'PB SecureSign rejected by user');
+        PBB.navigateWithLoading('Status.html', 1500, 'Cancelling Transaction...', 'PB SecureSign rejected by user');
       });
     }
 
@@ -316,8 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelDetailsBtn = document.getElementById('cancelDetailsBtn');
     if (cancelDetailsBtn) {
       cancelDetailsBtn.addEventListener('click', function () {
-        const targetUrl = prefix === '../' ? '../3.Status Page/status-rejected.html' : '3.Status Page/status-rejected.html';
-        PBB.navigateWithLoading(targetUrl, 1000, 'Cancelling...', 'Returning to merchant');
+        PBB.navigateWithLoading('Status.html', 1000, 'Cancelling...', 'Returning to merchant');
       });
     }
 
@@ -350,15 +339,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (countdownSec <= 0) {
         clearInterval(interval);
-        const targetUrl = prefix === '../' ? '../1.Login username/index.html' : '1.Login username/index.html';
-        PBB.navigateWithLoading(targetUrl, 1000, 'Redirecting...', 'Returning to merchant');
+        PBB.navigateWithLoading('login.html', 1000, 'Redirecting...', 'Returning to merchant');
       }
     }, 1000);
 
     statusContinueBtn.addEventListener('click', function () {
       clearInterval(interval);
-      const targetUrl = prefix === '../' ? '../1.Login username/index.html' : '1.Login username/index.html';
-      PBB.navigateWithLoading(targetUrl, 1000, 'Redirecting...', 'Returning to merchant');
+      PBB.navigateWithLoading('login.html', 1000, 'Redirecting...', 'Returning to merchant');
     });
   }
 });

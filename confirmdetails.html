@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PB SecureSign - Public Bank Berhad</title>
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/approve-details.css">
-  <link rel="shortcut icon" href="../images/pb_logo.png" type="image/png">
+  <title>FPX Payment - Public Bank Berhad</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/details.css">
+  <link rel="shortcut icon" href="images/pb_logo.png" type="image/png">
 </head>
-
 <body>
 
   <!-- FPX Payment Top Header -->
   <header class="fpx-page-header">
     <div class="fpx-page-header-inner">
       <div class="mypb-logo-wrap">
-        <a href="../1.Login username/index.html">
-          <img src="../images/mypb_100h.png" alt="MyPB Logo">
+        <a href="login.html">
+          <img src="images/mypb_100h.png" alt="MyPB Logo">
         </a>
       </div>
       <h1 class="fpx-page-title">FPX Payment</h1>
       <div class="fpx-logo-center-wrap">
-        <img src="../images/fpx2.png" alt="FPX">
+        <img src="images/fpx2.png" alt="FPX">
       </div>
     </div>
   </header>
 
-  <!-- Main Transaction Details Content (Background) -->
+  <!-- Main Transaction Details Content -->
   <main class="details-page-wrapper">
     <div class="details-form-container">
-
+      
       <!-- From Account -->
       <div class="detail-row">
         <label for="fromAccount" class="detail-label">From Account</label>
@@ -76,15 +74,14 @@
         <input type="text" id="serviceCharge" class="detail-input" value="RM 0.00" readonly>
       </div>
 
-      <!-- Push Notification Box -->
+      <!-- PB SecureSign Push Notification Action Box -->
       <div class="push-notification-box">
         <div class="push-icon-wrap">
-          <img src="../images/pushNotification.png" alt="Push Notification Icon">
+          <img src="images/pushNotification.png" alt="Push Notification Icon">
         </div>
         <div class="push-text-wrap">
           <p>
-            Click "Send Push Notification" button and a push notification will be sent to your mobile device. Launch our
-            mobile banking application and verify the transaction details before approving the transaction.
+            Click "Send Push Notification" button and a push notification will be sent to your mobile device. Launch our mobile banking application and verify the transaction details before approving the transaction.
           </p>
         </div>
         <div>
@@ -92,45 +89,44 @@
         </div>
       </div>
 
-      <!-- Timer row -->
+      <!-- Countdown Timer Row -->
       <div class="details-timer-row">
         Time remaining: <span class="timer-highlight" id="detailsRemainingTimer">01 : 32</span>
       </div>
 
-      <!-- Actions -->
+      <!-- Bottom Action Buttons: Cancel and Pay -->
       <div class="details-actions-row">
         <button type="button" class="btn-details-cancel" id="cancelDetailsBtn">Cancel</button>
         <button type="button" class="btn-details-pay" id="payBtn" disabled>Pay</button>
       </div>
 
-      <!-- Note -->
+      <!-- Note box -->
       <div class="details-note-box">
-        <b>Note</b><br>
-        &bull; By clicking on the "Cancel" button, you would be logged out from MyPB and redirected to the merchant's
-        site.
+        <b>Note</b>
+        <ul>
+          <li>By clicking on the "Cancel" button, you would be logged out from MyPB and redirected to the merchant's site.</li>
+        </ul>
       </div>
 
     </div>
   </main>
 
-  <!-- Step 2.1: PB SecureSign Popup Modal (Displayed directly in this step) -->
-  <div class="pbb-modal-overlay active" id="pbSecureSignModal" role="dialog" aria-modal="true"
-    aria-labelledby="modalTitle">
+  <!-- Step 2.1: PB SecureSign Popup Modal -->
+  <div class="pbb-modal-overlay" id="pbSecureSignModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="pbb-modal-card">
-
+      
       <!-- Modal Header -->
       <div class="pbb-modal-header">
         <h2 class="pbb-modal-title" id="modalTitle">PB SecureSign (Push Notification)</h2>
-        <button type="button" class="pbb-modal-close-btn" id="closeModalBtn" aria-label="Close modal"
-          onclick="window.location.href='../2.Details/index.html'">&times;</button>
+        <button type="button" class="pbb-modal-close-btn" id="closeModalBtn" aria-label="Close modal">&times;</button>
       </div>
 
       <!-- Modal Body -->
       <div class="pbb-modal-body">
-
+        
         <!-- Animated Phone Graphic -->
         <div class="modal-gif-wrap">
-          <img src="../images/animation_500_kugn1p08.gif" alt="PB SecureSign Push Notification Animation">
+          <img src="images/animation_500_kugn1p08.gif" alt="PB SecureSign Push Notification Animation">
         </div>
 
         <!-- Phone instructions -->
@@ -162,10 +158,9 @@
           </button>
           <div class="accordion-body-content" id="viewMoreContent">
             Launch our mobile banking application to approve it.<br>
-            Need Help? <a href="https://www.pbebank.com/en/digital-banking/mobile-banking/pb-securesign/"
-              target="_blank" rel="noopener noreferrer">Click here</a>
+            Need Help? <a href="https://www.pbebank.com/en/digital-banking/mobile-banking/pb-securesign/" target="_blank" rel="noopener noreferrer">Click here</a> 
           </div>
-        </div>
+        </div>      
 
       </div>
 
@@ -189,7 +184,6 @@
     </div>
   </footer>
 
-  <script src="../js/app.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
