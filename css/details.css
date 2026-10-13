@@ -263,7 +263,7 @@
 }
 
 .pbb-modal-body {
-  padding: 24px 28px;
+  padding: 24px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -317,11 +317,16 @@
 }
 
 .modal-warning-notice {
-  font-size: 12.5px;
+  font-size: 11px;
   color: #555555;
   line-height: 1.5;
   margin-bottom: 18px;
-  padding: 0 10px;
+  padding: 0;
+}
+
+.modal-warning-notice b {
+  font-weight: 700;
+  font-size: 11px;
 }
 
 /* Accordion "Did not Receive?" */
