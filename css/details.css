@@ -371,6 +371,17 @@
   display: block;
 }
 
+/* "Click here" link - black with underline to match original */
+.accordion-click-here {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.accordion-click-here:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
 /* Simulation Action Buttons */
 .modal-sim-actions {
   display: flex;
