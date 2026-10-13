@@ -349,13 +349,9 @@
 
 .accordion-arrow {
   display: inline-block;
-  transition: transform 0.2s;
-  font-size: 11px;
+  font-size: 13px;
 }
 
-.accordion-arrow.rotated {
-  transform: rotate(90deg);
-}
 
 .accordion-body-content {
   display: none;

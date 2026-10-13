@@ -238,10 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Toggle "Did not Receive?" accordion
     if (viewMoreBtn && viewMoreContent) {
       viewMoreBtn.addEventListener('click', function () {
-        const isOpen = viewMoreContent.classList.toggle('open');
-        if (viewMoreArrow) {
-          viewMoreArrow.classList.toggle('rotated', isOpen);
-        }
+        viewMoreContent.classList.toggle('open');
       });
     }
 
