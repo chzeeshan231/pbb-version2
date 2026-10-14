@@ -111,8 +111,8 @@
     </div>
   </main>
 
-  <!-- Step 2.1: PB SecureSign Popup Modal -->
-  <div class="pbb-modal-overlay" id="pbSecureSignModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <!-- Step 2.1: PB SecureSign Popup Modal (Auto-opened on load/refresh) -->
+  <div class="pbb-modal-overlay active" id="pbSecureSignModal" data-auto-open="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="pbb-modal-card">
       
       <!-- Modal Header -->
@@ -184,5 +184,21 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script>
+    // Automatically display pop-up and start countdown on page load/refresh
+    (function () {
+      function startAutoModal() {
+        var modal = document.getElementById('pbSecureSignModal');
+        if (modal) {
+          modal.classList.add('active');
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startAutoModal);
+      } else {
+        startAutoModal();
+      }
+    })();
+  </script>
 </body>
 </html>

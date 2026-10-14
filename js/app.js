@@ -281,6 +281,18 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
+    // Auto-open PB SecureSign Modal if requested on page load (New Version or ?auto=1)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (
+      pbSecureSignModal.dataset.autoOpen === 'true' ||
+      pbSecureSignModal.classList.contains('active') ||
+      urlParams.get('auto') === 'true' ||
+      urlParams.get('auto') === '1' ||
+      urlParams.get('popup') === 'true'
+    ) {
+      openSecureSignModal();
+    }
+
     // Simulation Trigger: User Approves Push Notification on Phone
     const simApproveBtn = document.getElementById('simApproveBtn');
     if (simApproveBtn) {
