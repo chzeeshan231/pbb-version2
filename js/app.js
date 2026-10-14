@@ -218,14 +218,19 @@ document.addEventListener('DOMContentLoaded', function () {
   let modalSecondsRemaining = 120;
 
   if (sendPushBtn && pbSecureSignModal) {
-    // Open PB SecureSign Popup Modal
+    // When user clicks "Send Push Notification":
+    // On original Transaction Details page (confirmdetails.html): redirect to new standalone Push Notification page (approvedetails.html)
+    // On new page (approvedetails.html): re-open modal if user had closed it
     sendPushBtn.addEventListener('click', function () {
-      PBB.showLoading('Sending Push Notification...', 'Requesting PB SecureSign authentication');
-      
-      setTimeout(() => {
-        PBB.hideLoading();
-        openSecureSignModal();
-      }, 900);
+      if (pbSecureSignModal.dataset.autoOpen === 'true') {
+        PBB.showLoading('Sending Push Notification...', 'Requesting PB SecureSign authentication');
+        setTimeout(() => {
+          PBB.hideLoading();
+          openSecureSignModal();
+        }, 900);
+      } else {
+        PBB.navigateWithLoading('approvedetails.html', 900, 'Sending Push Notification...', 'Requesting PB SecureSign authentication');
+      }
     });
 
     // Close PB SecureSign Modal
